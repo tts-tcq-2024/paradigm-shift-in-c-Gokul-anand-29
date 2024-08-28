@@ -7,15 +7,14 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
   float soc_min = 20;
   float soc_max = 80;
   float charge = 0.8;
+  int battery_ok =1;
   
-  if (temperature < temp_min || temperature > temp_max ||
-        soc < soc_min || soc > soc_max ||
-        chargeRate > charge) {
+  if (temperature < temp_min || temperature > temp_max || soc < soc_min || soc > soc_max || chargeRate > charge) {
         printf("Battery parameters out of range!\n");
-        return 0;
+        battery_ok = 0;
     }
 
-    return 1;
+    return battery_ok;
 }
 
 int main() {

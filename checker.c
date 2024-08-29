@@ -18,25 +18,31 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
     int soc_ok = !isSocOk(soc);
     int charge_ok = !isChargeRateOk(chargeRate);
     
-    display(temp_ok, soc_ok, charge_ok);
+    disp_temp(temp_ok);
+    disp_soc(soc_ok);
+    disp_cr(Charge_ok);
     
     return temp_ok && soc_ok && charge_ok;
 }
 
-int display( int temp, int soc, int charge){
+int disp_temp(int temp_check){
     
-    if(!temp){
+    if(!temp_check){
         printf("Temperature out of range!\n");
     }
-    else if(!soc){
+}
+int disp_soc(int soc_check){
+    
+    if(!soc_check){
         printf("State of Charge out of range!\n");
     }
-    else if(!charge){
+}
+int disp_cr(int cr_check){
+    
+    if(!cr_check){
         printf("Charge Rate out of range!\n");
     }
-    return 1;
 }
-
 int main() {
     assert(batteryIsOk(25, 70, 0.7));//no print
     assert(batteryIsOk(55, 50, 0.2));//temp out of range

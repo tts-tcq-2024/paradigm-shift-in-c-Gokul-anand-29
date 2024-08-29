@@ -38,7 +38,8 @@ int display( int temp, int soc, int charge){
 }
 
 int main() {
-    assert(batteryIsOk(25, 70, 0.7));
-    assert(!batteryIsOk(50, 85, 0));
-    assert(batteryIsOk(25, 50, 0.2));
+    assert(batteryIsOk(25, 70, 0.7));//no print
+    assert(batteryIsOk(55, 50, 0.2));//temp out of range
+    assert(batteryIsOk(20, 90, 0.2));//Soc Out of range
+     assert(batteryIsOk(20, 65, 2));//battery out of range
 }

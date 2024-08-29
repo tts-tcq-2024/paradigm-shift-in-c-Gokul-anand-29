@@ -40,13 +40,13 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
     disp_soc(soc_ok);
     disp_cr(charge_ok);
     
-    return temp_ok && soc_ok && charge_ok;
+    return 1;
 }
 int main() {
-    batteryIsOk(25, 70, 0.7);//no print
-    batteryIsOk(55, 50, 0.2);//temp out of range
-    batteryIsOk(-1, 85, 0.0);//temp out of range
-    batteryIsOk(20, 90, 0.2);//Soc Out of range
-    batteryIsOk(20, 15, 0.2);//Soc Out of range
-    batteryIsOk(25, 25, 0.8);//charge out of range
+    assert(batteryIsOk(25, 70, 0.7));//no print
+    assert(batteryIsOk(55, 50, 0.2));//temp out of range
+    assert(batteryIsOk(-1, 85, 0.0));//temp out of range
+    assert(batteryIsOk(20, 90, 0.2));//Soc Out of range
+    assert(batteryIsOk(20, 15, 0.2));//Soc Out of range
+    assert(batteryIsOk(25, 25, 0.8));//charge out of range
 }

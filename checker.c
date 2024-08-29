@@ -10,7 +10,7 @@ int isSocOk(float soc) {
 }
 
 int isChargeRateOk(float chargeRate) {
-    return chargeRate > 0.8;
+    return chargeRate > 1.0;
 }
 
 void disp_temp(int temp_check){

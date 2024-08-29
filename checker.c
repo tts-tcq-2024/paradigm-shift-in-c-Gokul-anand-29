@@ -31,7 +31,7 @@ int display( int temp, int soc, int charge){
     else if(!soc){
         printf("State of Charge out of range!\n");
     }
-    else{
+    else if(!charge){
         printf("Charge Rate out of range!\n");
     }
     return 1;

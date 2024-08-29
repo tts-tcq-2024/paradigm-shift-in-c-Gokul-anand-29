@@ -25,10 +25,10 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 
 int display( int temp, int soc, int charge){
     
-    if(temp){
+    if(!temp){
         printf("Temperature out of range!\n");
     }
-    else if(soc){
+    else if(!soc){
         printf("State of Charge out of range!\n");
     }
     else{

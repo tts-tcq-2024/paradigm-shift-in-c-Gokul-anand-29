@@ -14,9 +14,9 @@ int isChargeRateOk(float chargeRate) {
 }
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-    int temp_ok = isTemperatureOk(temperature);
-    int soc_ok = isSocOk(soc);
-    int charge_ok = isChargeRateOk(chargeRate);
+    int temp_ok = !isTemperatureOk(temperature);
+    int soc_ok = !isSocOk(soc);
+    int charge_ok = !isChargeRateOk(chargeRate);
     
     display(temp_ok, soc_ok, charge_ok);
     

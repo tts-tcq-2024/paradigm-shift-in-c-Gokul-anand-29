@@ -9,4 +9,8 @@ int main() {
     assert(!batteryIsOk(20, 90, 0.2));//Soc Out of range
     assert(!batteryIsOk(20, 15, 0.2));//Soc Out of range
     assert(!batteryIsOk(25, 25, 0.8));//charge out of range
+        
+    //Warning checks
+    assert(batteryIsOk(0, 21, 0.02)); //Warnign discharge for all parameter
+    assert(batteryIsOk(43, 77, 0.77)); //Warning peak for all parameter
 }

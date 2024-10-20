@@ -4,21 +4,22 @@
 float tolerance_Check(float max){
     return max*0.05; //5% of the max value
 }
-void warning_check(float value, float tolerance,float upper, float lower, const char* range_name){
-    printf("%f %f \n",value,upper - tolerance);
+int warning_check(float value, float tolerance,float upper, float lower, const char* range_name){
     if(value >= (upper - tolerance)){
-        printf("%s approaching peak!", range_name);
+        printf("%s approaching peak!\n", range_name);
     }
     if (value <= (lower + tolerance)) {
         printf("%s approaching discharge!\n", range_name);
     }
 }
+
 int isTemperatureOk(float temperature) {
     if(temperature < 0 || temperature > 45)
     {
         printf("Temperature out of range!\n");
         return 0;
     }
+    warning_check(temperature,Temp_tolerance_Check,TEMP_UL,TEMP_LL,"Temperature");
     return 1;
 }
  
@@ -28,6 +29,7 @@ int isSocOk(float soc) {
         printf("State of Charge out of range!\n");
       return 0;
     }
+    warning_check(soc,SOC_tolerance_Check,SOC_UL,SOC_LL,"SOC");
     return 1;
 }
  
@@ -37,6 +39,7 @@ int isChargeRateOk(float chargeRate) {
          printf("Charge Rate out of range!\n");
          return 0;
     }
+     warning_check(chargeRate,Chargerate_tolerance_Check,CHARGE_RATE_UL,0,"Charge rate");
     return 1;
 }
  

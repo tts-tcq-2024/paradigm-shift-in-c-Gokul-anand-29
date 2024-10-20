@@ -14,6 +14,8 @@ int warning_check(float value, float tolerance,float upper, float lower, const c
 }
 
 int isTemperatureOk(float temperature) {
+    float Temp_tolerance_Check = tolerance_Check(TEMP_UL);
+    
     if(temperature < 0 || temperature > 45)
     {
         printf("Temperature out of range!\n");
@@ -24,6 +26,8 @@ int isTemperatureOk(float temperature) {
 }
  
 int isSocOk(float soc) {
+    float SOC_tolerance_Check = tolerance_Check(SOC_UL);
+    
     if(soc < 20 || soc > 80)
     {
         printf("State of Charge out of range!\n");
@@ -34,6 +38,8 @@ int isSocOk(float soc) {
 }
  
 int isChargeRateOk(float chargeRate) {
+    float Chargerate_tolerance_Check = tolerance_Check(CHARGE_RATE_UL);
+    
     if(chargeRate > 0.8)
     {
          printf("Charge Rate out of range!\n");

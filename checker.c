@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include "checker.h"
 
+float tolerance_Check(float max){
+    return max*0.05; //5% of the max value
+}
+void warning_check(float value, float tolerance,float upper, float lower, const char* range_name){
+    printf("%f %f \n",value,upper - tolerance);
+    if(value >= (upper - tolerance)){
+        printf("%s approaching peak!", range_name);
+    }
+    if (value <= (lower + tolerance)) {
+        printf("%s approaching discharge!\n", range_name);
+    }
+}
 int isTemperatureOk(float temperature) {
     if(temperature < 0 || temperature > 45)
     {

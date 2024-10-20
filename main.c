@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-
+#include "checker.c"
 int main() {
     assert(batteryIsOk(25, 70, 0.7));//no print
     assert(!batteryIsOk(55, 50, 0.2));//temp out of range
